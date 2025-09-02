@@ -1,10 +1,8 @@
 on:
-  issue_comment:
-    types: [created]
+  workflow_dispatch:
 
 jobs:
   test:
-    if: contains(github.event.comment.body, '/mandatoryTest')
     runs-on: [self-hosted, macos]
 
     steps:
@@ -14,9 +12,3 @@ jobs:
       - name: Run mandatory tests
         run: |
           echo "Running mandatory tests..."
-
-        # Add your test commands here
-        # For example:
-        #   npm install
-        #   npm test
-
